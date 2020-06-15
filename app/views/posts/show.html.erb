@@ -1,3 +1,7 @@
 <h3><%= @post.title %></h3>
 <p>submitted at: <%= time_ago_in_words(@post.created_at) %> ago</p>
 <p><%= @post.content %></p>
+
+<%= link_to "Edit", edit_post_path(@post.id) %>
+<%= link_to "Delete", post_path(@post.id), method: :delete %>
+<%= link_to "Back", posts_path %>
