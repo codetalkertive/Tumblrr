@@ -1,7 +1,15 @@
+<div class="container-fluid mt-3">
 <h3><%= @post.title %></h3>
 <p>submitted at: <%= time_ago_in_words(@post.created_at) %> ago</p>
 <p><%= @post.content %></p>
 
-<%= link_to "Edit", edit_post_path(@post.id) %>
-<%= link_to "Delete", post_path(@post.id), method: :delete %>
-<%= link_to "Back", posts_path %>
+<table>
+	<tbody>
+		<td><%= link_to "Edit", edit_post_path(@post.id), class: 'btn btn-primary' %></td>
+		<td><%= link_to "Delete", post_path(@post.id), method: :delete, class: 'btn btn-danger' %>
+</td>
+		<td><%= link_to "Back", posts_path, class: 'btn btn-secondary' %></td>
+	</tbody>
+</table>
+</div>
+

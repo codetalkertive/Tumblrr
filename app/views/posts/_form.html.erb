@@ -1,8 +1,22 @@
-<%= form_for @post do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<%= f.label :content %>
-	<%= f.text_area :content %>
+<div class="flex-row d-flex justify-content-center mt-3">
+	<div class="col-md-8">
+		<%= form_for @post do |f| %>
 
-	<%= f.submit "Create Post" %>
+		<div class="form-group">
+			<%= f.label :title %>
+	       <%= f.text_field :title, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :content %>
+	<%= f.text_area :content, class: 'form-control' %>
+		</div>
+	
+	
+
+	<%= f.submit "Create Post", class: 'btn btn-primary' %>
 <% end %>
+	</div>
+	
+</div>
+
+
