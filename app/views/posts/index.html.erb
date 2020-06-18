@@ -5,9 +5,11 @@
 	<div class="col-md-12">
 		<div class="card mt-1">
 			<div class="card-body">
+
 				<h3><%= link_to post.title , post_path(post.id) %></h3>
-	<p><%= time_ago_in_words(post.created_at) %></p>
-	<p><%= truncate(post.content, length: 50) %></p>
+				<p><%= time_ago_in_words(post.created_at) %> ago</p>
+				<p><%= truncate(post.content, length: 100) %></p>
+				
 			</div>
 		</div>
 	</div>
