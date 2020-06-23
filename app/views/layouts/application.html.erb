@@ -24,8 +24,10 @@
         
         <%= link_to "Posts", root_path, class: "list-group-item list-group-item-action bg-light" %>
         <%= link_to "About", about_path, class: "list-group-item list-group-item-action bg-light" %>
+        <% if !user_signed_in? %>
+        <%= link_to "Login", new_user_session_path, class: "list-group-item list-group-item-action bg-light" %>
+        <% end %>
         
-        <a href="#" class="list-group-item list-group-item-action bg-light">User Login</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -42,10 +44,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-md-auto">
+
+            <% if user_signed_in? %>
+
             <li class="nav-item active">
               <%= link_to "Create Posts", new_post_path %>
-              <%= link_to "Sign Out" %>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
             </li>
+            <% end %>
             
           </ul>
         </div>
@@ -53,6 +59,8 @@
 
       <div class="container-fluid">
         
+        <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 
         <%= yield %>
       </div>
